@@ -1,0 +1,11 @@
+This is the Comet server for the Universal Primer.
+
+The html and javascript is being served up by the primer-site rails app.
+
+You need:
+
+  sudo aptitude install rabbitmq-server thin
+
+then do:
+
+./start
