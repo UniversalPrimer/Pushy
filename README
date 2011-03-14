@@ -1,5 +1,11 @@
 This is the Comet server for the Universal Primer.
 
+It is based on Marc-André Cournoyer's Pusher:
+
+  https://github.com/macournoyer/pusher
+
+The code is licensed under the terms of the GPLv2.
+
 The html and javascript is being served up by the primer-site rails app.
 
 You need:
