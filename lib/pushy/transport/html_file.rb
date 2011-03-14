@@ -30,20 +30,18 @@ DATA
         renderer.call [initial_data]
       end
       
-      def write_raw(escaped_data)
+      def write_raw(escaped_data, parms={})
 
         puts "writing"
 
         js = "parent.htmlfile_received(\"#{escaped_data}\");"
         data = "<script type='text/javascript'>#{js}</script>"
 
-        soon_sent = @sent + data.size
-
-        if soon_sent > MAX_BYTES_SENT
-          #          EM.next_tick { renderer.succeed }
+        if parms[:close_connection] || (@sent > MAX_BYTES_SENT)
           close
+          return
         else
-          @sent = soon_sent
+          @sent += data.size
           renderer.call [data]
         end
       end
